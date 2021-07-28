@@ -1,0 +1,24 @@
+Firstly i complete node function which return its priority and value;
+
+then i made queue in queue firstly i changed nodebase<V> to object to make a genric array then in constructor i initialize queue and also initialize other 
+variables to 0; then for size function i return currentSize variable; for isEmpty function i check whether currentSize is zero or not; for isFull function i 
+check whether currentSize == capacity(size of the array) or not; then for enque function firstly i check if queue is full or not and if not full then add 
+element into it and change rear to rear+1)%capacity this make my queue to circular queue and finally increasing currentSize by 1; and for dequeue function 
+firstly i check whether it is empty or not if empty then take out element at index front and then front = front+1)%capacity again for circular queue and 
+finally decreasing currentSize by 1;
+
+priority queue:- in priority queue (isEmpty, isFull, Size and constructor) is nearly same for enqueue firstly i check if it is full or not if not then i add 
+an element at index currentSize and increase currentSize by 1; for dequeue i check if it is empty or not if not then take out that node whose priority(int) is 
+minimum and note its index then shift all index(after that index) by 1 to left and decrease currentSize by 1 and finally return node;
+
+buy function in buyer :- firstly i put lockon threads then go to try and put while loop till there is greater than or equal to one element to buy in catalog 
+after coming out of while loop i dequeue one element from catalog; and then i go to finally where i give signal to full if it is awaiting which means that 
+catalog is no more full now and then unlock my lock;
+
+sell function in seller :- firstly i put lock then go to try and put while loop till there is spacein catalog  to sell(add element in catalog) a element after 
+coming out from while loop firstly i check inventory is empty or not if not then i enqueue one element to catalog and then in finally give a signal to empty 
+if it is awaiting which means catalog is not empty now and then unlock my lock for threads;
+
+Assignment2 driver :- firstly i add all element from list(Arraylist) to inventory queue; 
+threads:- firstly i put for loop of sellers then making new seller objects for seller threads and start them one by one through for loop;
+then applied for loop for buyers then making new buyers objects for buyer threads and start them one by one with help of for loop.
